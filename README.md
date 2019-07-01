@@ -8,7 +8,7 @@ su - nifi
 mkdir /home/nifi/model
 
 # load the resouces
-git clone "<this repo>"
+git clone https://github.com/frothkoetter/nifitfdemo.git
 
 # copy the TF model and NIFI-Tensorflow.Jar into the directories.
 cd nifitfdemo
