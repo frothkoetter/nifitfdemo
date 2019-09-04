@@ -2,7 +2,7 @@
 Tensorflow and Nifi Demo for Code Free Image Recognition Application
 tested with whoville - HDF 3.4 NIFI 1.9
 
-# prepare
+# prepare TF 
 su - nifi
 /home/nifi
 mkdir /home/nifi/model
