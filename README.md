@@ -28,3 +28,4 @@ using demo.nifi.tf@gmx.de / hadoop88
 
 # Python Scirpt to extract Body 
 https://stackoverflow.com/questions/47200178/read-message-body-of-an-email-using-apache-nifi
+Adding a new attribute msgbody to the flow with the text of the E-Mail Body (no-header, no- attachements)
