@@ -26,6 +26,6 @@ upload template tfdemo3.xml to Nifi
 # Check E-Mail Account/Password 
 using demo.nifi.tf@gmx.de / hadoop88
 
-# Python Scirpt to extract Body 
+# Python Script to extract E-Mail Body 
 https://stackoverflow.com/questions/47200178/read-message-body-of-an-email-using-apache-nifi
 Adding a new attribute msgbody to the flow with the text of the E-Mail Body (no-header, no- attachements)
