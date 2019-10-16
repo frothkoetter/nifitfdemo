@@ -26,11 +26,12 @@ create database superset
 # import the Flowfile 
 upload template demo.nifi.tf.xml to Nifi
 
-# Check E-Mail Account/Password in the get mail processsor (passwords are not exported in the XML Flow)
-using demo.nifi.tf@gmx.de / hadoop88
+# Check E-Mail Account/Password in the get mail and send mail processors (passwords are not exported in the XML Flow)
+using demo.nifi.tf@gmx.de / hadoop88 
 
-# Python Script to extract E-Mail Body 
-Follow the steps here 
+# Python Script to extract E-Mail Body (optional)
+Good to know this piece 
+
 https://stackoverflow.com/questions/47200178/read-message-body-of-an-email-using-apache-nifi
 Adding a new attribute msgbody to the flow with the text of the E-Mail Body (no-header, no- attachements)
 
