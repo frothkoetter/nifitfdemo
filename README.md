@@ -4,7 +4,7 @@ tested with whoville - HDF 3.4 NIFI 1.9
 
 # prepare TF 
 su - nifi
-/home/nifi
+cd /home/nifi
 mkdir /home/nifi/model
 
 # load the resouces
@@ -24,7 +24,7 @@ beeline -u "jdbc:hive2://ip-10-0-1-167.eu-central-1.compute.internal:2181,ip-10-
 create database superset
 
 # import the Flowfile 
-upload template demo.nifi.tf.xml to Nifi
+you may download to your desktop as template and then upload template demo.nifi.tf.xml to Nifi
 
 # Check E-Mail Account/Password in the get mail and send mail processors (passwords are not exported in the XML Flow)
 using demo.nifi.tf@gmx.de / hadoop88 
