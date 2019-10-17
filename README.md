@@ -57,3 +57,48 @@ negative
 neutral
 positive
 very positive
+
+# Create Kafka topic
+
+sudo su - kafka
+cd /usr/hdp/current/kafka-broker
+
+Create a topic 
+
+./bin/kafka-topics.sh --create --zookeeper demo.cloudera.com:2181 --replication-factor 1 --partitions 1 --topic demo_nifi_tf
+
+List topics to check that it's been created
+
+./bin/kafka-topics.sh --list --zookeeper demo.cloudera.com:2181
+
+Open a consumer so later we can monitor and verify that JSON records will stream through this topic:
+
+./bin/kafka-console-consumer.sh --bootstrap-server demo.cloudera.com:6667 --topic demo_nifi_tf
+
+Keep this terminal open, and see events comming.
+
+# Druid / Hive processing 
+
+create database workshop;
+
+CREATE EXTERNAL TABLE workshop.demo_nifi_tf (
+`__time` timestamp,
+`sender` string,
+`sentiment` string,
+`label_1` string,
+`probability_1` string
+)
+STORED BY 'org.apache.hadoop.hive.druid.DruidStorageHandler'
+TBLPROPERTIES (
+"kafka.bootstrap.servers" = "demo.cloudera.com:6667",
+"kafka.topic" = "demo_nifi_tf",
+"druid.kafka.ingestion.useEarliestOffset" = "true",
+"druid.kafka.ingestion.maxRowsInMemory" = "5",
+"druid.kafka.ingestion.startDelay" = "PT1S",
+"druid.kafka.ingestion.period" = "PT1S",
+"druid.kafka.ingestion.consumer.retries" = "2"
+);
+ALTER TABLE workshop.demo_nifi_tf SET TBLPROPERTIES('druid.kafka.ingestion' = 'START');
+
+select * from workshop.demo_nifi_tf
+
