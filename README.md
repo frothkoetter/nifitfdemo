@@ -19,10 +19,6 @@ cp nifi-ten*jar /usr/hdf/<version>/nifi/lib
 # restart NIFI on Ambari to load jar file and register the tensorflow processor
 go to Ambari -- Restart NIFI
 
-# create hive table (optional)
-beeline -u "jdbc:hive2://ip-10-0-1-167.eu-central-1.compute.internal:2181,ip-10-0-1-45.eu-central-1.compute.internal:2181,ip-10-0-1-134.eu-central-1.compute.internal:2181/superset;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2" -i /tmp/tf_images.sql -n hive
-create database superset
-
 # import the Flowfile 
 you may download to your desktop as template and then upload template demo.nifi.tf.xml to Nifi
 
