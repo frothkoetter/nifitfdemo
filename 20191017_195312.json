@@ -1,0 +1,300 @@
+{
+    "datasources": [
+        {
+            "__DruidDatasource__": {
+                "cluster": {
+                    "__DruidCluster__": {
+                        "coordinator_endpoint": "druid/coordinator/v1",
+                        "verbose_name": null,
+                        "cluster_name": "druid-ambari",
+                        "coordinator_host": "demo.cloudera.com",
+                        "cache_timeout": null,
+                        "created_by_fk": null,
+                        "coordinator_port": 8081,
+                        "broker_endpoint": "druid/v2",
+                        "changed_on": {
+                            "__datetime__": "2019-10-17T18:55:01"
+                        },
+                        "metadata_last_refreshed": {
+                            "__datetime__": "2019-10-17T18:55:01"
+                        },
+                        "changed_by_fk": 1,
+                        "broker_port": 8888,
+                        "created_on": {
+                            "__datetime__": "2019-04-06T16:02:56"
+                        },
+                        "broker_host": "demo.cloudera.com",
+                        "id": 1
+                    }
+                },
+                "metrics": [
+                    {
+                        "__DruidMetric__": {
+                            "verbose_name": "COUNT(*)",
+                            "datasource_id": 1,
+                            "warning_text": null,
+                            "description": null,
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2019-10-17T18:55:01"
+                            },
+                            "changed_on": {
+                                "__datetime__": "2019-10-17T18:55:01"
+                            },
+                            "changed_by_fk": 1,
+                            "metric_type": "count",
+                            "d3format": null,
+                            "is_restricted": false,
+                            "metric_name": "count",
+                            "json": "{\"type\": \"count\", \"name\": \"count\"}",
+                            "id": 2
+                        }
+                    }
+                ],
+                "cluster_name": "druid-ambari",
+                "fetch_values_from": null,
+                "description": null,
+                "cache_timeout": null,
+                "created_by_fk": 1,
+                "is_featured": false,
+                "changed_on": {
+                    "__datetime__": "2019-10-17T18:55:01"
+                },
+                "perm": "[druid-ambari].[workshop.demo_nifi_tf](id:1)",
+                "changed_by_fk": 1,
+                "default_endpoint": null,
+                "offset": 0,
+                "columns": [
+                    {
+                        "__DruidColumn__": {
+                            "verbose_name": null,
+                            "type": "STRING",
+                            "sum": false,
+                            "min": false,
+                            "column_name": "sender",
+                            "groupby": true,
+                            "description": null,
+                            "created_by_fk": 1,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2019-10-17T18:55:01"
+                            },
+                            "datasource_id": 1,
+                            "is_active": true,
+                            "avg": false,
+                            "dimension_spec_json": null,
+                            "filterable": true,
+                            "created_on": {
+                                "__datetime__": "2019-10-17T18:55:01"
+                            },
+                            "count_distinct": false,
+                            "changed_by_fk": 1,
+                            "id": 5
+                        }
+                    },
+                    {
+                        "__DruidColumn__": {
+                            "verbose_name": null,
+                            "type": "STRING",
+                            "sum": false,
+                            "min": false,
+                            "column_name": "probability_1",
+                            "groupby": true,
+                            "description": null,
+                            "created_by_fk": 1,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2019-10-17T18:55:01"
+                            },
+                            "datasource_id": 1,
+                            "is_active": true,
+                            "avg": false,
+                            "dimension_spec_json": null,
+                            "filterable": true,
+                            "created_on": {
+                                "__datetime__": "2019-10-17T18:55:01"
+                            },
+                            "count_distinct": false,
+                            "changed_by_fk": 1,
+                            "id": 6
+                        }
+                    },
+                    {
+                        "__DruidColumn__": {
+                            "verbose_name": null,
+                            "type": "STRING",
+                            "sum": false,
+                            "min": false,
+                            "column_name": "sentiment",
+                            "groupby": true,
+                            "description": null,
+                            "created_by_fk": 1,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2019-10-17T18:55:01"
+                            },
+                            "datasource_id": 1,
+                            "is_active": true,
+                            "avg": false,
+                            "dimension_spec_json": null,
+                            "filterable": true,
+                            "created_on": {
+                                "__datetime__": "2019-10-17T18:55:01"
+                            },
+                            "count_distinct": false,
+                            "changed_by_fk": 1,
+                            "id": 7
+                        }
+                    },
+                    {
+                        "__DruidColumn__": {
+                            "verbose_name": null,
+                            "type": "STRING",
+                            "sum": false,
+                            "min": false,
+                            "column_name": "label_1",
+                            "groupby": true,
+                            "description": null,
+                            "created_by_fk": 1,
+                            "max": false,
+                            "changed_on": {
+                                "__datetime__": "2019-10-17T18:55:01"
+                            },
+                            "datasource_id": 1,
+                            "is_active": true,
+                            "avg": false,
+                            "dimension_spec_json": null,
+                            "filterable": true,
+                            "created_on": {
+                                "__datetime__": "2019-10-17T18:55:01"
+                            },
+                            "count_distinct": false,
+                            "changed_by_fk": 1,
+                            "id": 8
+                        }
+                    }
+                ],
+                "user_id": null,
+                "created_on": {
+                    "__datetime__": "2019-10-17T18:55:01"
+                },
+                "filter_select_enabled": false,
+                "datasource_name": "workshop.demo_nifi_tf",
+                "params": "{\"database_name\": \"druid-ambari\", \"remote_id\": 1}",
+                "is_hidden": false,
+                "id": 1
+            }
+        }
+    ],
+    "dashboards": [
+        {
+            "__Dashboard__": {
+                "json_metadata": "{\"filter_immune_slices\": [], \"filter_immune_slice_fields\": {}, \"default_filters\": \"{}\", \"timed_refresh_immune_slices\": [], \"expanded_slices\": {}, \"remote_id\": 1}",
+                "position_json": "[\n    {\n        \"col\": 1,\n        \"row\": 0,\n        \"size_x\": 16,\n        \"size_y\": 16,\n        \"slice_id\": \"1\"\n    },\n    {\n        \"col\": 17,\n        \"row\": 0,\n        \"size_x\": 16,\n        \"size_y\": 16,\n        \"slice_id\": \"3\"\n    },\n    {\n        \"col\": 1,\n        \"row\": 32,\n        \"size_x\": 16,\n        \"size_y\": 16,\n        \"slice_id\": \"4\"\n    },\n    {\n        \"col\": 17,\n        \"row\": 32,\n        \"size_x\": 16,\n        \"size_y\": 16,\n        \"slice_id\": \"5\"\n    }\n]",
+                "description": null,
+                "slices": [
+                    {
+                        "__Slice__": {
+                            "changed_by_fk": 1,
+                            "description": "",
+                            "viz_type": "dist_bar",
+                            "created_by_fk": 1,
+                            "cache_timeout": null,
+                            "changed_on": {
+                                "__datetime__": "2019-10-17T19:53:12"
+                            },
+                            "perm": "[druid-ambari].[workshop.demo_nifi_tf](id:1)",
+                            "datasource_id": 1,
+                            "datasource_type": "druid",
+                            "slice_name": "Sender",
+                            "created_on": {
+                                "__datetime__": "2019-10-17T19:02:27"
+                            },
+                            "datasource_name": "workshop.demo_nifi_tf",
+                            "params": "{\"reduce_x_ticks\": false, \"y_axis_format\": \".3s\", \"until\": \"now\", \"having_filters\": [], \"groupby\": [\"sender\"], \"viz_type\": \"dist_bar\", \"metrics\": [\"count\"], \"druid_time_origin\": null, \"contribution\": false, \"y_axis_label\": \"\", \"datasource_name\": \"workshop.demo_nifi_tf\", \"x_axis_label\": \"\", \"color_scheme\": \"bnbColors\", \"slice_id\": 1, \"show_bar_value\": false, \"bar_stacked\": false, \"bottom_margin\": \"auto\", \"datasource\": \"1__druid\", \"row_limit\": 50000, \"order_bars\": false, \"schema\": \"workshop.demo_nifi_tf\", \"since\": \"7 days ago\", \"database_name\": \"druid-ambari\", \"show_legend\": true, \"columns\": [], \"show_controls\": false, \"filters\": [], \"granularity\": \"one day\", \"remote_id\": 1}",
+                            "id": 1
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "changed_by_fk": 1,
+                            "description": null,
+                            "viz_type": "pie",
+                            "created_by_fk": 1,
+                            "cache_timeout": null,
+                            "changed_on": {
+                                "__datetime__": "2019-10-17T19:53:12"
+                            },
+                            "perm": "[druid-ambari].[workshop.demo_nifi_tf](id:1)",
+                            "datasource_id": 1,
+                            "datasource_type": "druid",
+                            "slice_name": "Sentiment",
+                            "created_on": {
+                                "__datetime__": "2019-10-17T19:07:25"
+                            },
+                            "datasource_name": "workshop.demo_nifi_tf",
+                            "params": "{\"remote_id\": 3, \"until\": \"now\", \"schema\": \"workshop.demo_nifi_tf\", \"having_filters\": [], \"groupby\": [\"sentiment\"], \"viz_type\": \"pie\", \"pie_label_type\": \"key\", \"metrics\": [\"count\"], \"since\": \"7 days ago\", \"database_name\": \"druid-ambari\", \"show_legend\": true, \"druid_time_origin\": null, \"donut\": false, \"labels_outside\": true, \"datasource_name\": \"workshop.demo_nifi_tf\", \"color_scheme\": \"bnbColors\", \"datasource\": \"1__druid\", \"filters\": [], \"granularity\": \"one day\"}",
+                            "id": 3
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "changed_by_fk": 1,
+                            "description": null,
+                            "viz_type": "table",
+                            "created_by_fk": 1,
+                            "cache_timeout": null,
+                            "changed_on": {
+                                "__datetime__": "2019-10-17T19:53:12"
+                            },
+                            "perm": "[druid-ambari].[workshop.demo_nifi_tf](id:1)",
+                            "datasource_id": 1,
+                            "datasource_type": "druid",
+                            "slice_name": "Detail",
+                            "created_on": {
+                                "__datetime__": "2019-10-17T19:09:35"
+                            },
+                            "datasource_name": "workshop.demo_nifi_tf",
+                            "params": "{\"table_timestamp_format\": \"%Y-%m-%d %H:%M:%S\", \"order_by_cols\": [], \"until\": \"now\", \"timeseries_limit_metric\": null, \"having_filters\": [], \"groupby\": [], \"viz_type\": \"table\", \"metrics\": [], \"druid_time_origin\": null, \"table_filter\": false, \"include_search\": false, \"datasource_name\": \"workshop.demo_nifi_tf\", \"granularity\": \"one day\", \"schema\": \"workshop.demo_nifi_tf\", \"row_limit\": 50000, \"include_time\": false, \"since\": \"7 days ago\", \"database_name\": \"druid-ambari\", \"page_length\": 0, \"filters\": [], \"datasource\": \"1__druid\", \"order_desc\": true, \"all_columns\": [\"sender\", \"sentiment\", \"label_1\", \"probability_1\"], \"remote_id\": 4}",
+                            "id": 4
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "changed_by_fk": 1,
+                            "description": null,
+                            "viz_type": "word_cloud",
+                            "created_by_fk": 1,
+                            "cache_timeout": null,
+                            "changed_on": {
+                                "__datetime__": "2019-10-17T19:53:12"
+                            },
+                            "perm": "[druid-ambari].[workshop.demo_nifi_tf](id:1)",
+                            "datasource_id": 1,
+                            "datasource_type": "druid",
+                            "slice_name": "Image Labels",
+                            "created_on": {
+                                "__datetime__": "2019-10-17T19:42:40"
+                            },
+                            "datasource_name": "workshop.demo_nifi_tf",
+                            "params": "{\"filters\": [{\"op\": \"not in\", \"col\": \"label_1\", \"val\": \"\"}], \"size_to\": \"150\", \"remote_id\": 5, \"until\": \"now\", \"having_filters\": [], \"row_limit\": 50000, \"size_from\": 50, \"viz_type\": \"word_cloud\", \"schema\": \"workshop.demo_nifi_tf\", \"since\": \"7 days ago\", \"database_name\": \"druid-ambari\", \"druid_time_origin\": null, \"metric\": \"count\", \"datasource_name\": \"workshop.demo_nifi_tf\", \"series\": \"label_1\", \"datasource\": \"1__druid\", \"color_scheme\": \"d3Category10\", \"rotation\": \"random\", \"granularity\": \"one day\"}",
+                            "id": 5
+                        }
+                    }
+                ],
+                "created_by_fk": 1,
+                "changed_on": {
+                    "__datetime__": "2019-10-17T19:43:32"
+                },
+                "changed_by_fk": 1,
+                "slug": null,
+                "css": "",
+                "created_on": {
+                    "__datetime__": "2019-10-17T19:02:27"
+                },
+                "dashboard_title": "demo_nifi_tf",
+                "id": 1
+            }
+        }
+    ]
+}
