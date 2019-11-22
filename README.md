@@ -13,12 +13,14 @@ tested with whoville - HDF 3.4 NIFI 1.9
 
 
 # prepare TF 
-```su - nifi
+```bash
+su - nifi
 cd /home/nifi
 mkdir /home/nifi/model
 ```
 # load tensorflow resouces from git
-```git clone https://github.com/frothkoetter/nifitfdemo.git 
+```bash
+git clone https://github.com/frothkoetter/nifitfdemo.git 
 ```
 
 # copy the TF model and NIFI-Tensorflow.Jar into the directories.
