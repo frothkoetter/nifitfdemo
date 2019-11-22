@@ -110,7 +110,7 @@ CREATE DATABASE workshop;
 Create the Hive table backed by Druid storage where the social medias sentiment analysis will be streamed into
 
 ```SQL
-CREATE EXTERNAL TABLE workshop.meetup_comment_sentiment (
+CREATE EXTERNAL TABLE workshop.demo_nifi_tf (
 `__time` timestamp,
 `sender` string,
 `sentiment` string,
@@ -131,7 +131,7 @@ TBLPROPERTIES (
 Start Druid indexing
 
 ```SQL
-ALTER TABLE workshop.meetup_comment_sentiment SET TBLPROPERTIES('druid.kafka.ingestion' = 'START');
+ALTER TABLE workshop.demo_nifi_tf SET TBLPROPERTIES('druid.kafka.ingestion' = 'START');
 ```
 
 ```SQL
