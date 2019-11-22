@@ -24,7 +24,8 @@ git clone https://github.com/frothkoetter/nifitfdemo.git
 ```
 
 # copy the TF model and NIFI-Tensorflow.Jar into the directories.
-```cd nifitfdemo
+```bash
+cd nifitfdemo
 cp ima*.txt /home/nifi/model 
 cp tens*.pb /home/nifi/model
 cp nifi-ten*jar /usr/hdf/<version>/nifi/lib
@@ -33,7 +34,7 @@ cp nifi-ten*jar /usr/hdf/<version>/nifi/lib
 go to Ambari -- Restart NIFI
 
 # import the Flowfile 
-you may download to your desktop as template and then upload template demo.nifi.tf.xml to Nifi
+Download demo.nifi.tf.v3.xml to your desktop and then upload as template demo.nifi.tf.v3.xml to Nifi UI
 
 # Check E-Mail Account/Password in the get mail and send mail processors (passwords are not exported in the XML Flow)
 using demo.nifi.tf@gmx.de / hadoop88 
@@ -50,13 +51,15 @@ For the purpose we re-use an existing sentiment analysis model, provided by the 
 
 Download and unzip the CoreNLP using the wget as below:
 
-```wget http://nlp.stanford.edu/software/stanford-corenlp-full-2018-10-05.zip
+```bash
+wget http://nlp.stanford.edu/software/stanford-corenlp-full-2018-10-05.zip
 unzip stanford-corenlp-full-2018-10-05.zip
 ```
 
 Then, in order to start the web service, run the CoreNLP jar file, with the following commands:
 
-```cd stanford-corenlp-full-2018-10-05
+```bash
+cd stanford-corenlp-full-2018-10-05
 java -mx1g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9999 -timeout 15000 </dev/null &>/dev/null &
 ```
 This will run in the background on port 9999 and you can visit the web page to make sure it's running.
@@ -71,23 +74,27 @@ very positive
 
 # Create Kafka topic
 
-```sudo su - kafka
+```bash
+sudo su - kafka
 cd /usr/hdp/current/kafka-broker
 ```
 
 Create a topic 
 
-```./bin/kafka-topics.sh --create --zookeeper demo.cloudera.com:2181 --replication-factor 1 --partitions 1 --topic demo_nifi_tf
+```bash
+./bin/kafka-topics.sh --create --zookeeper demo.cloudera.com:2181 --replication-factor 1 --partitions 1 --topic demo_nifi_tf
 ```
 
 List topics to check that it's been created
 
-```./bin/kafka-topics.sh --list --zookeeper demo.cloudera.com:2181
+```bash
+./bin/kafka-topics.sh --list --zookeeper demo.cloudera.com:2181
 ```
 
 Open a consumer so later we can monitor and verify that JSON records will stream through this topic:
 
-```./bin/kafka-console-consumer.sh --bootstrap-server demo.cloudera.com:6667 --topic demo_nifi_tf
+```bash
+./bin/kafka-console-consumer.sh --bootstrap-server demo.cloudera.com:6667 --topic demo_nifi_tf
 ```
 
 Keep this terminal open, and see events comming.
@@ -131,3 +138,10 @@ ALTER TABLE workshop.meetup_comment_sentiment SET TBLPROPERTIES('druid.kafka.ing
 select * from workshop.demo_nifi_tf
 ```
 
+Goto Ambari and check the Druid Coordinator working
+
+# Superset 
+
+Login into Superset http://demo.cloudera.com:9088/login/  admin/admin 
+
+Refresh Druid got to Sources -> refresh Druid Metadata will show the Druid Table and start to create the 
