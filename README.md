@@ -3,19 +3,19 @@ Tensorflow and Nifi Demo for Code Free Image Recognition Application
 tested with whoville - HDF 3.4 NIFI 1.9
 
 # prepare TF 
-su - nifi
+```su - nifi
 cd /home/nifi
 mkdir /home/nifi/model
-
+```
 # load the resouces
-git clone https://github.com/frothkoetter/nifitfdemo.git
-
+```git clone https://github.com/frothkoetter/nifitfdemo.git
+```
 # copy the TF model and NIFI-Tensorflow.Jar into the directories.
-cd nifitfdemo
+```cd nifitfdemo
 cp ima*.txt /home/nifi/model 
 cp tens*.pb /home/nifi/model
 cp nifi-ten*jar /usr/hdf/<version>/nifi/lib
-  
+```  
 # restart NIFI on Ambari to load jar file and register the tensorflow processor
 go to Ambari -- Restart NIFI
 
@@ -37,13 +37,15 @@ For the purpose we re-use an existing sentiment analysis model, provided by the 
 
 Download and unzip the CoreNLP using the wget as below:
 
-wget http://nlp.stanford.edu/software/stanford-corenlp-full-2018-10-05.zip
+```wget http://nlp.stanford.edu/software/stanford-corenlp-full-2018-10-05.zip
 unzip stanford-corenlp-full-2018-10-05.zip
+```
+
 Then, in order to start the web service, run the CoreNLP jar file, with the following commands:
 
-cd stanford-corenlp-full-2018-10-05
+```cd stanford-corenlp-full-2018-10-05
 java -mx1g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9999 -timeout 15000 </dev/null &>/dev/null &
-
+```
 This will run in the background on port 9999 and you can visit the web page to make sure it's running.
 
 The model will classify the given text into 5 categories:
@@ -56,28 +58,39 @@ very positive
 
 # Create Kafka topic
 
-sudo su - kafka
+```sudo su - kafka
 cd /usr/hdp/current/kafka-broker
+```
 
 Create a topic 
 
-./bin/kafka-topics.sh --create --zookeeper demo.cloudera.com:2181 --replication-factor 1 --partitions 1 --topic demo_nifi_tf
+```./bin/kafka-topics.sh --create --zookeeper demo.cloudera.com:2181 --replication-factor 1 --partitions 1 --topic demo_nifi_tf
+```
 
 List topics to check that it's been created
 
-./bin/kafka-topics.sh --list --zookeeper demo.cloudera.com:2181
+```./bin/kafka-topics.sh --list --zookeeper demo.cloudera.com:2181
+```
 
 Open a consumer so later we can monitor and verify that JSON records will stream through this topic:
 
-./bin/kafka-console-consumer.sh --bootstrap-server demo.cloudera.com:6667 --topic demo_nifi_tf
+```./bin/kafka-console-consumer.sh --bootstrap-server demo.cloudera.com:6667 --topic demo_nifi_tf
+```
 
 Keep this terminal open, and see events comming.
 
 # Druid / Hive processing 
 
-create database workshop;
+Create a database named workshop and run the SQL
 
-CREATE EXTERNAL TABLE workshop.demo_nifi_tf (
+```SQL
+CREATE DATABASE workshop;
+```
+
+Create the Hive table backed by Druid storage where the social medias sentiment analysis will be streamed into
+
+```SQL
+CREATE EXTERNAL TABLE workshop.meetup_comment_sentiment (
 `__time` timestamp,
 `sender` string,
 `sentiment` string,
@@ -94,7 +107,14 @@ TBLPROPERTIES (
 "druid.kafka.ingestion.period" = "PT1S",
 "druid.kafka.ingestion.consumer.retries" = "2"
 );
-ALTER TABLE workshop.demo_nifi_tf SET TBLPROPERTIES('druid.kafka.ingestion' = 'START');
+```
+Start Druid indexing
 
+```SQL
+ALTER TABLE workshop.meetup_comment_sentiment SET TBLPROPERTIES('druid.kafka.ingestion' = 'START');
+```
+
+```SQL
 select * from workshop.demo_nifi_tf
+```
 
