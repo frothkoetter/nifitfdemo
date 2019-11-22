@@ -2,6 +2,16 @@
 Tensorflow and Nifi Demo for Code Free Image Recognition Application
 tested with whoville - HDF 3.4 NIFI 1.9
 
+*Although this AMI is not public and is available for Cloudera workhops only, the steps can be reproduced in your own environment**
+
+- Launch AWS AMI **ami-0e27d5a9d5cb14e8f** in Frankfurt region with **m5d.4xlarge** instance type
+- Keep default storage (300GB SSD)
+- Set security group with:
+  - Type: All TCP
+  - Source: My IP
+- Choose an existing or create a new key pair
+
+
 # prepare TF 
 ```su - nifi
 cd /home/nifi
