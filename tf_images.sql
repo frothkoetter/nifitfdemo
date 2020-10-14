@@ -1,4 +1,4 @@
-create table tf_image (`email_attachment_parent_filename` string,
+create table tf_images (`email_attachment_parent_filename` string,
 `email_headers_sent_date` string,
 `email_headers_from_0` string,
 `mime_type` string,
@@ -20,4 +20,8 @@ create table tf_image (`email_attachment_parent_filename` string,
 `probability_4` string,
 `label_5` string,
 `probability_5` string
-)
+);
+
+create view tf_labels as 
+select concat_ws(' ',label_1,label_2,label_3,label_4,label_5) as labels from stabu.tf_images;
+
